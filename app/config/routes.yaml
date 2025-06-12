@@ -1,0 +1,12 @@
+routes:
+  - name: dialogflow-openai
+    path: /webhook/dialogflow-openai
+    handler: app.handlers.dialogflow_openai_handler.handle_dialogflow
+    method: POST
+    enabled: true
+  
+  - name: healthcheck
+    path: /
+    handler: app.handlers.health_handler.ping
+    method: GET
+    enabled: true
