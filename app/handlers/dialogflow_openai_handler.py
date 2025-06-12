@@ -16,6 +16,10 @@ async def handle_dialogflow(request: Request):
         response = generate_chat_reply(messages)
         reply = response["choices"][0]["message"]["content"].strip()
         messages.append({"role": "assistant", "content": reply})
+
+        print(f"[Dialogflow] User: {query}")
+        print(f"[Dialogflow] Assistant: {reply}")
+        
         return JSONResponse({"fulfillmentText": reply, "source": "openai"})
 
     if action == "welcome":
